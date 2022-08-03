@@ -8,22 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		C4305012289A86A400A43771 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4305011289A86A400A43771 /* AppDelegate.swift */; };
-		C4305014289A86A400A43771 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4305013289A86A400A43771 /* SceneDelegate.swift */; };
 		C4305016289A86A400A43771 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4305015289A86A400A43771 /* ViewController.swift */; };
-		C4305019289A86A400A43771 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4305017289A86A400A43771 /* Main.storyboard */; };
 		C430501B289A86A700A43771 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C430501A289A86A700A43771 /* Assets.xcassets */; };
 		C430501E289A86A700A43771 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C430501C289A86A700A43771 /* LaunchScreen.storyboard */; };
+		C4305029289A8A1F00A43771 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4305027289A8A1F00A43771 /* MainViewController.swift */; };
+		C430502A289A8A1F00A43771 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4305028289A8A1F00A43771 /* MainViewController.xib */; };
+		C430502F289A8A8000A43771 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430502D289A8A8000A43771 /* FavoritesViewController.swift */; };
+		C4305030289A8A8000A43771 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C430502E289A8A8000A43771 /* FavoritesViewController.xib */; };
+		C4305035289A8AA600A43771 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4305033289A8AA600A43771 /* ProfileViewController.swift */; };
+		C4305036289A8AA600A43771 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4305034289A8AA600A43771 /* ProfileViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C430500E289A86A400A43771 /* SurfSummerSchoolProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurfSummerSchoolProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4305011289A86A400A43771 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C4305013289A86A400A43771 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C4305015289A86A400A43771 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C4305018289A86A400A43771 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C430501A289A86A700A43771 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C430501D289A86A700A43771 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C430501F289A86A700A43771 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4305027289A8A1F00A43771 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C4305028289A8A1F00A43771 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		C430502D289A8A8000A43771 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		C430502E289A8A8000A43771 /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
+		C4305033289A8AA600A43771 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C4305034289A8AA600A43771 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,14 +65,50 @@
 			isa = PBXGroup;
 			children = (
 				C4305011289A86A400A43771 /* AppDelegate.swift */,
-				C4305013289A86A400A43771 /* SceneDelegate.swift */,
+				C4305025289A86B600A43771 /* Appearance */,
 				C4305015289A86A400A43771 /* ViewController.swift */,
-				C4305017289A86A400A43771 /* Main.storyboard */,
+				C4305026289A89B700A43771 /* MainModule */,
+				C430502B289A8A2400A43771 /* FavoritesModule */,
+				C4305031289A8A8500A43771 /* ProfileModule */,
+			);
+			path = SurfSummerSchoolProject;
+			sourceTree = "<group>";
+		};
+		C4305025289A86B600A43771 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
 				C430501A289A86A700A43771 /* Assets.xcassets */,
 				C430501C289A86A700A43771 /* LaunchScreen.storyboard */,
 				C430501F289A86A700A43771 /* Info.plist */,
 			);
-			path = SurfSummerSchoolProject;
+			path = Appearance;
+			sourceTree = "<group>";
+		};
+		C4305026289A89B700A43771 /* MainModule */ = {
+			isa = PBXGroup;
+			children = (
+				C4305027289A8A1F00A43771 /* MainViewController.swift */,
+				C4305028289A8A1F00A43771 /* MainViewController.xib */,
+			);
+			path = MainModule;
+			sourceTree = "<group>";
+		};
+		C430502B289A8A2400A43771 /* FavoritesModule */ = {
+			isa = PBXGroup;
+			children = (
+				C430502D289A8A8000A43771 /* FavoritesViewController.swift */,
+				C430502E289A8A8000A43771 /* FavoritesViewController.xib */,
+			);
+			path = FavoritesModule;
+			sourceTree = "<group>";
+		};
+		C4305031289A8A8500A43771 /* ProfileModule */ = {
+			isa = PBXGroup;
+			children = (
+				C4305033289A8AA600A43771 /* ProfileViewController.swift */,
+				C4305034289A8AA600A43771 /* ProfileViewController.xib */,
+			);
+			path = ProfileModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,8 +170,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C430501E289A86A700A43771 /* LaunchScreen.storyboard in Resources */,
+				C430502A289A8A1F00A43771 /* MainViewController.xib in Resources */,
+				C4305030289A8A8000A43771 /* FavoritesViewController.xib in Resources */,
+				C4305036289A8AA600A43771 /* ProfileViewController.xib in Resources */,
 				C430501B289A86A700A43771 /* Assets.xcassets in Resources */,
-				C4305019289A86A400A43771 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +184,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4305029289A8A1F00A43771 /* MainViewController.swift in Sources */,
 				C4305016289A86A400A43771 /* ViewController.swift in Sources */,
+				C4305035289A8AA600A43771 /* ProfileViewController.swift in Sources */,
+				C430502F289A8A8000A43771 /* FavoritesViewController.swift in Sources */,
 				C4305012289A86A400A43771 /* AppDelegate.swift in Sources */,
-				C4305014289A86A400A43771 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C4305017289A86A400A43771 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C4305018289A86A400A43771 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C430501C289A86A700A43771 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -289,10 +329,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HXD5CYVJM9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SurfSummerSchoolProject/Info.plist;
+				INFOPLIST_FILE = SurfSummerSchoolProject/Appearance/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -304,7 +343,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -317,10 +356,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HXD5CYVJM9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SurfSummerSchoolProject/Info.plist;
+				INFOPLIST_FILE = SurfSummerSchoolProject/Appearance/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -332,7 +370,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
