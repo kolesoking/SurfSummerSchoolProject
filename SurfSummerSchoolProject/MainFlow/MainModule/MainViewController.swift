@@ -97,4 +97,10 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return Constants.spaceBetwinElements
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = DetailViewController()
+        vc.model = model.items[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

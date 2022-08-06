@@ -23,6 +23,15 @@
 		C4305052289DB75D00A43771 /* MainItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4305050289DB75D00A43771 /* MainItemCollectionViewCell.xib */; };
 		C4305056289DD72800A43771 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4305054289DD72800A43771 /* SearchViewController.swift */; };
 		C4305057289DD72800A43771 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4305055289DD72800A43771 /* SearchViewController.xib */; };
+		C430505B289DE5B100A43771 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4305059289DE5B100A43771 /* DetailViewController.swift */; };
+		C430505C289DE5B100A43771 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C430505A289DE5B100A43771 /* DetailViewController.xib */; };
+		C4305065289DEB5A00A43771 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4305063289DEB5A00A43771 /* ImageTableViewCell.swift */; };
+		C4305066289DEB5A00A43771 /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4305064289DEB5A00A43771 /* ImageTableViewCell.xib */; };
+		C430506A289DECD900A43771 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4305068289DECD900A43771 /* TitleTableViewCell.swift */; };
+		C430506B289DECD900A43771 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4305069289DECD900A43771 /* TitleTableViewCell.xib */; };
+		C430506F289DF01300A43771 /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430506D289DF01300A43771 /* TextTableViewCell.swift */; };
+		C4305070289DF01300A43771 /* TextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C430506E289DF01300A43771 /* TextTableViewCell.xib */; };
+		C4305072289DF43D00A43771 /* DetailItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4305071289DF43D00A43771 /* DetailItemModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +53,15 @@
 		C4305050289DB75D00A43771 /* MainItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		C4305054289DD72800A43771 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C4305055289DD72800A43771 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		C4305059289DE5B100A43771 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C430505A289DE5B100A43771 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		C4305063289DEB5A00A43771 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		C4305064289DEB5A00A43771 /* ImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
+		C4305068289DECD900A43771 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		C4305069289DECD900A43771 /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
+		C430506D289DF01300A43771 /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
+		C430506E289DF01300A43771 /* TextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextTableViewCell.xib; sourceTree = "<group>"; };
+		C4305071289DF43D00A43771 /* DetailItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +118,7 @@
 				C4305048289B348700A43771 /* MainViewController.swift */,
 				C4305049289B348700A43771 /* MainViewController.xib */,
 				C430504C289DADA000A43771 /* MainModel.swift */,
+				C4305071289DF43D00A43771 /* DetailItemModel.swift */,
 			);
 			path = MainModule;
 			sourceTree = "<group>";
@@ -134,11 +153,12 @@
 		C4305038289AFFB500A43771 /* MainFlow */ = {
 			isa = PBXGroup;
 			children = (
-				C4305037289AFE9900A43771 /* TabBar */,
+				C4305058289DE58000A43771 /* DetailModule */,
 				C4305026289A89B700A43771 /* MainModule */,
 				C430502B289A8A2400A43771 /* FavoritesModule */,
 				C4305031289A8A8500A43771 /* ProfileModule */,
 				C4305053289DD6E200A43771 /* SearchModule */,
+				C4305037289AFE9900A43771 /* TabBar */,
 			);
 			path = MainFlow;
 			sourceTree = "<group>";
@@ -159,6 +179,53 @@
 				C4305055289DD72800A43771 /* SearchViewController.xib */,
 			);
 			path = SearchModule;
+			sourceTree = "<group>";
+		};
+		C4305058289DE58000A43771 /* DetailModule */ = {
+			isa = PBXGroup;
+			children = (
+				C430505D289DE9A600A43771 /* Cells */,
+				C4305059289DE5B100A43771 /* DetailViewController.swift */,
+				C430505A289DE5B100A43771 /* DetailViewController.xib */,
+			);
+			path = DetailModule;
+			sourceTree = "<group>";
+		};
+		C430505D289DE9A600A43771 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C430506C289DEFF400A43771 /* TextCell */,
+				C4305067289DEC9500A43771 /* TitleCell */,
+				C4305062289DE9E900A43771 /* ImageCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		C4305062289DE9E900A43771 /* ImageCell */ = {
+			isa = PBXGroup;
+			children = (
+				C4305063289DEB5A00A43771 /* ImageTableViewCell.swift */,
+				C4305064289DEB5A00A43771 /* ImageTableViewCell.xib */,
+			);
+			path = ImageCell;
+			sourceTree = "<group>";
+		};
+		C4305067289DEC9500A43771 /* TitleCell */ = {
+			isa = PBXGroup;
+			children = (
+				C4305068289DECD900A43771 /* TitleTableViewCell.swift */,
+				C4305069289DECD900A43771 /* TitleTableViewCell.xib */,
+			);
+			path = TitleCell;
+			sourceTree = "<group>";
+		};
+		C430506C289DEFF400A43771 /* TextCell */ = {
+			isa = PBXGroup;
+			children = (
+				C430506D289DF01300A43771 /* TextTableViewCell.swift */,
+				C430506E289DF01300A43771 /* TextTableViewCell.xib */,
+			);
+			path = TextCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +286,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C430506B289DECD900A43771 /* TitleTableViewCell.xib in Resources */,
+				C4305066289DEB5A00A43771 /* ImageTableViewCell.xib in Resources */,
 				C430501E289A86A700A43771 /* LaunchScreen.storyboard in Resources */,
+				C4305070289DF01300A43771 /* TextTableViewCell.xib in Resources */,
 				C4305030289A8A8000A43771 /* FavoritesViewController.xib in Resources */,
 				C4305052289DB75D00A43771 /* MainItemCollectionViewCell.xib in Resources */,
+				C430505C289DE5B100A43771 /* DetailViewController.xib in Resources */,
 				C430504B289B348700A43771 /* MainViewController.xib in Resources */,
 				C4305036289A8AA600A43771 /* ProfileViewController.xib in Resources */,
 				C430501B289A86A700A43771 /* Assets.xcassets in Resources */,
@@ -239,10 +310,15 @@
 				C4305035289A8AA600A43771 /* ProfileViewController.swift in Sources */,
 				C430502F289A8A8000A43771 /* FavoritesViewController.swift in Sources */,
 				C4305012289A86A400A43771 /* AppDelegate.swift in Sources */,
+				C4305065289DEB5A00A43771 /* ImageTableViewCell.swift in Sources */,
+				C430506A289DECD900A43771 /* TitleTableViewCell.swift in Sources */,
+				C4305072289DF43D00A43771 /* DetailItemModel.swift in Sources */,
 				C4305056289DD72800A43771 /* SearchViewController.swift in Sources */,
 				C430504A289B348700A43771 /* MainViewController.swift in Sources */,
 				C4305051289DB75D00A43771 /* MainItemCollectionViewCell.swift in Sources */,
 				C430504D289DADA100A43771 /* MainModel.swift in Sources */,
+				C430505B289DE5B100A43771 /* DetailViewController.swift in Sources */,
+				C430506F289DF01300A43771 /* TextTableViewCell.swift in Sources */,
 				C4305040289B036D00A43771 /* TabBarConfigurator.swift in Sources */,
 				C430503D289AFFFE00A43771 /* TabBarModel.swift in Sources */,
 			);
