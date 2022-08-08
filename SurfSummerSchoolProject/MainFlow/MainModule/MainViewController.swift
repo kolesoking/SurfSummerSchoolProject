@@ -32,10 +32,13 @@ class MainViewController: UIViewController {
         configureApperance()
         configureModel()
         model.getPosts()
-         
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(named: "searchNav"),
-            style: .plain, target: self, action: #selector(goToSearchVC))
+            style: .plain,
+            target: self,
+            action: #selector(goToSearchVC)
+        )
         navigationController?.navigationBar.tintColor = .black
     }
 }

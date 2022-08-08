@@ -89,7 +89,7 @@ extension DetailViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "\(TitleTableViewCell.self)")
             if let cell = cell as? TitleTableViewCell {
                 cell.title = model?.title ?? ""
-                cell.date = model?.dataCreation ?? ""
+                cell.date = model?.dateCreation ?? ""
             }
             return cell ?? UITableViewCell()
         case 2:
