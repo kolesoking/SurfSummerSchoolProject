@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TitleTableViewCell: UITableViewCell {
+class DetailTitleTableViewCell: UITableViewCell {
     
     // MARK: - Views
     

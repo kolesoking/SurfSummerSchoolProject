@@ -62,9 +62,9 @@ private extension DetailViewController {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
         
-        tableView.register(UINib(nibName: "\(ImageTableViewCell.self)", bundle: .main), forCellReuseIdentifier: "\(ImageTableViewCell.self)")
-        tableView.register(UINib(nibName: "\(TitleTableViewCell.self)", bundle: .main), forCellReuseIdentifier: "\(TitleTableViewCell.self)")
-        tableView.register(UINib(nibName: "\(TextTableViewCell.self)", bundle: .main), forCellReuseIdentifier: "\(TextTableViewCell.self)")
+        tableView.register(UINib(nibName: "\(DetailImageTableViewCell.self)", bundle: .main), forCellReuseIdentifier: "\(DetailImageTableViewCell.self)")
+        tableView.register(UINib(nibName: "\(DetailTitleTableViewCell.self)", bundle: .main), forCellReuseIdentifier: "\(DetailTitleTableViewCell.self)")
+        tableView.register(UINib(nibName: "\(DetailTextTableViewCell.self)", bundle: .main), forCellReuseIdentifier: "\(DetailTextTableViewCell.self)")
         
         tableView.dataSource = self
         tableView.separatorStyle = .none
@@ -80,21 +80,21 @@ extension DetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "\(ImageTableViewCell.self)")
-            if let cell = cell as? ImageTableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "\(DetailImageTableViewCell.self)")
+            if let cell = cell as? DetailImageTableViewCell {
                 cell.image = model?.image
             }
             return cell ?? UITableViewCell()
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "\(TitleTableViewCell.self)")
-            if let cell = cell as? TitleTableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "\(DetailTitleTableViewCell.self)")
+            if let cell = cell as? DetailTitleTableViewCell {
                 cell.title = model?.title ?? ""
                 cell.date = model?.dateCreation ?? ""
             }
             return cell ?? UITableViewCell()
         case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "\(TextTableViewCell.self)")
-            if let cell = cell as? TextTableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "\(DetailTextTableViewCell.self)")
+            if let cell = cell as? DetailTextTableViewCell {
                 cell.text = model?.content ?? ""
             }
             return cell ?? UITableViewCell()
