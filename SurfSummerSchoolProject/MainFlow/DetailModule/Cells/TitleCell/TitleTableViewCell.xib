@@ -41,8 +41,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="dateLabel" destination="Dex-vo-Sar" id="psa-Pu-9Pb"/>
-                <outlet property="titleLabel" destination="mkx-hd-hlP" id="iRd-tv-MZh"/>
+                <outlet property="dateLabel" destination="Dex-vo-Sar" id="v7V-he-Z9y"/>
+                <outlet property="titleLabel" destination="mkx-hd-hlP" id="B27-P5-3gR"/>
             </connections>
             <point key="canvasLocation" x="132" y="130"/>
         </tableViewCell>

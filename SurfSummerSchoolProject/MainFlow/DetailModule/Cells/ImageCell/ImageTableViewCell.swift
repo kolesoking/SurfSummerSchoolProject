@@ -2,7 +2,7 @@
 //  ImageTableViewCell.swift
 //  SurfSummerSchoolProject
 //
-//  Created by катя on 06.08.2022.
+//  Created by катя on 13.08.2022.
 //
 
 import UIKit
