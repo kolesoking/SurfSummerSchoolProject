@@ -11,7 +11,7 @@ struct PicturesService {
     
     let dataTask = BaseNetworkTask<EmptyModel, [PictureResponseModel]>(
         isNeedInjectToken: true,
-        method: .post,
+        method: .get,
         path: "picture/"
     )
     
