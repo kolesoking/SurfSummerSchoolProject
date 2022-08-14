@@ -12,51 +12,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var tokenStorage: TokenStorage {
-        BasetokenStorage()
+        BaseTokenStorage()
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        goToMain()
-        
-        startApplcationProcces()
-        
+        if #available(iOS 13.0, *) {
+            window?.overrideUserInterfaceStyle = .light
+        }
+
+        startApplicationProccess()
+
         return true
     }
-    
-    func startApplcationProcces() {
+
+    func startApplicationProccess() {
         runLaunchScreen()
-        
-        if let tokenConteiner = try? tokenStorage.getToken(), !tokenConteiner.isExpired {
-            goToMain()
+
+        if let tokenContainer = try? tokenStorage.getToken(), !tokenContainer.isExpired {
+            runMainFlow()
         } else {
             let tempCredentials = AuthRequestModel(phone: "+79876543219", password: "qwerty")
             AuthService()
-                .performLoginRequestAndSaveToken(credentials: tempCredentials) { result in
+                .performLoginRequestAndSaveToken(credentials: tempCredentials) { [weak self] result in
                     switch result {
                     case .success:
-                        self.goToMain()
+                        self?.runMainFlow()
                     case .failure:
-                        // TODO: - Hundle error, if token was not received
+                        // TODO: - Handle error, if token was not received
                         break
                     }
                 }
         }
     }
-    
-    func goToMain() {
+
+    func runMainFlow() {
         DispatchQueue.main.async {
             self.window?.rootViewController = TabBarConfigurator().configur()
         }
     }
-    
-    func runLaunchScreen() {
-        let launchScreenViewController = UIStoryboard(name: "LaunchScreen", bundle: .main)
-            .instantiateInitialViewController()
-        
-        window?.rootViewController = launchScreenViewController
-    }
-}
 
+    func runLaunchScreen() {
+        let lauchScreenViewController = UIStoryboard(name: "LaunchScreen", bundle: .main)
+            .instantiateInitialViewController()
+
+        window?.rootViewController = lauchScreenViewController
+    }
+
+}
