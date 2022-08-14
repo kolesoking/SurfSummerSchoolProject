@@ -31,7 +31,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         configureApperance()
         configureModel()
-        model.getPosts()
+        model.loadPosts()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(named: "searchNav"),
@@ -81,7 +81,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(MainItemCollectionViewCell.self)", for: indexPath)
         if let cell = cell as? MainItemCollectionViewCell {
             let item = model.items[indexPath.row]
-            cell.image = item.image
+            cell.imageURLString = item.imageURLInString
             cell.title = item.title
             cell.isFavorite = item.isFavorite
         }

@@ -23,7 +23,7 @@ class FavoritesViewController: UIViewController {
         super.viewDidLoad()
         confiureAppearance()
         configoreModel()
-        model.getPosts()
+        model.loadPosts()
     }
 }
 
@@ -40,7 +40,9 @@ private extension FavoritesViewController {
     
     func configoreModel() {
         model.didItemsUpdated = { [weak self] in
-            self?.collectionView.reloadData()
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
         }
     }
     
@@ -58,7 +60,7 @@ extension FavoritesViewController: UICollectionViewDataSource, UICollectionViewD
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(FavoriteItemTableViewCell.self)", for: indexPath)
         if let cell = cell as? FavoriteItemTableViewCell {
             let item = model.items[indexPath.row]
-            cell.image = item.image
+            cell.imageURLString = item.imageURLInString
             cell.titleText = item.title
             cell.dateText = item.dateCreation
             cell.contentText = item.content

@@ -36,9 +36,12 @@ class FavoriteItemTableViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    var image: UIImage? {
+    var imageURLString: String = "" {
         didSet {
-            mainImageView.image = image
+            guard let url = URL(string: imageURLString) else {
+                return
+            }
+            mainImageView.loadImage(from: url)
         }
     }
     

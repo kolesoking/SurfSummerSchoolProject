@@ -48,9 +48,12 @@ class MainItemCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    var image: UIImage? {
+    var imageURLString: String = "" {
         didSet {
-            imageView.image = image
+            guard let url = URL(string: imageURLString) else {
+                return
+            }
+            imageView.loadImage(from: url)
         }
     }
     

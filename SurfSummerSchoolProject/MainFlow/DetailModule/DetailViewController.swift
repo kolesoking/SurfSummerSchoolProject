@@ -82,7 +82,7 @@ extension DetailViewController: UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "\(DetailImageTableViewCell.self)")
             if let cell = cell as? DetailImageTableViewCell {
-                cell.image = model?.image
+                cell.imageURLString = model?.imageURLInString ?? ""
             }
             return cell ?? UITableViewCell()
         case 1:
