@@ -56,7 +56,15 @@ class MainViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func actionFailedButton(_ sender: Any) {
-        viewDidLoad()
+        if model.items.isEmpty != true {
+            viewDidLoad()
+            toggleHiddenViews([
+                collectionView,
+                failedImage,
+                failedLabel,
+                failedButton
+            ])
+        }
     }
     
     // MARK: - Methods
