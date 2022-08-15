@@ -15,6 +15,11 @@ class MainViewController: UIViewController {
         static let horisontalInset: CGFloat = 16
         static let spaceBetwinElements: CGFloat = 7
         static let spaceBetwinRows: CGFloat = 8
+        
+        static let failedText = "Не удалось загрузить ленту \nОбновите экран или попробуйте позже"
+        static let failedTextColor = UIColor(red: 0xB0 / 255, green: 0xB0 / 255, blue: 0xB0 / 255, alpha: 1)
+        
+        static let failedButtonTextLable = "Обновить"
     }
     
     // MARK: - Private Properties
@@ -23,7 +28,12 @@ class MainViewController: UIViewController {
     
     // MARK: - Views
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var failedImage: UIImageView!
+    @IBOutlet weak var failedLabel: UILabel!
+    @IBOutlet weak var failedButton: UIButton!
     
     // MARK: - Lifecyrcle
     
@@ -32,6 +42,7 @@ class MainViewController: UIViewController {
         configureApperance()
         configureModel()
         model.loadPosts()
+        checkArrayForItems()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(named: "searchNav"),
@@ -41,6 +52,26 @@ class MainViewController: UIViewController {
         )
         navigationController?.navigationBar.tintColor = .black
     }
+    
+    // MARK: - Actions
+    
+    @IBAction func actionFailedButton(_ sender: Any) {
+        viewDidLoad()
+    }
+    
+    // MARK: - Methods
+    
+    func toggleHiddenViews(_ views: [UIView?]) {
+        for view in views {
+            guard let view = view else {
+                return
+            }
+
+            view.isHidden.toggle()
+        }
+    }
+
+    
 }
 
 // MARK: - Private Methods
@@ -52,22 +83,51 @@ private extension MainViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.contentInset = .init(top: 10, left: 16, bottom: 10, right: 16)
+        
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+        
+        failedImage.isHidden = true
+        
+        failedLabel.text = Constants.failedText
+        failedLabel.font = .systemFont(ofSize: 14)
+        failedLabel.textAlignment = .center
+        failedLabel.textColor = Constants.failedTextColor
+        failedLabel.numberOfLines = 0
+        failedLabel.isHidden = true
+        
+        failedButton.backgroundColor = .black
+        failedButton.tintColor = .white
+        failedButton.titleLabel?.font = .systemFont(ofSize: 16)
+        failedButton.isHidden = true
     }
     
     func configureModel() {
         model.didItemsUpdated = { [weak self] in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            DispatchQueue.main.async {
                 self?.collectionView.reloadData()
+                self?.activityIndicator.stopAnimating()
             }
         }
     }
+    
+    func checkArrayForItems() {
+        if model.items.isEmpty == true {
+            toggleHiddenViews([
+                collectionView,
+                failedImage,
+                failedLabel,
+                failedButton
+            ])
+            activityIndicator.stopAnimating()
+        }
+    }
+
     
     @objc func goToSearchVC() {
         let searchVC = SearchViewController()
         self.navigationController?.pushViewController(searchVC, animated: true)
     }
-    
-    
 }
 
 // MARK: - UICollection

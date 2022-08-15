@@ -40,7 +40,7 @@ final class MainModel {
                     )
                 }
             case .failure(let error):
-                print("ERRRRRRRRR\(error)")
+                print(error)
                 break
             }
         }
