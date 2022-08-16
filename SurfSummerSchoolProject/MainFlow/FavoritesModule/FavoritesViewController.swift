@@ -9,6 +9,13 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
     
+    // MARK: - Constants
+    
+    private enum Constants {
+        static let failedText = "По этому запросу нет рузультатов"
+        static let failedTextColor = UIColor(red: 0xB0 / 255, green: 0xB0 / 255, blue: 0xB0 / 255, alpha: 1)
+    }
+    
     // MARK: - Private Properties
     
     private let model: MainModel = .init()
@@ -17,6 +24,9 @@ class FavoritesViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var failedImage: UIImageView!
+    @IBOutlet weak var failedLabel: UILabel!
+    
     // MARK: - UIViewController
     
     override func viewDidLoad() {
@@ -24,6 +34,7 @@ class FavoritesViewController: UIViewController {
         confiureAppearance()
         configoreModel()
         model.loadPosts()
+        checkArrayForItems()
     }
 }
 
@@ -36,6 +47,15 @@ private extension FavoritesViewController {
         collectionView.contentInset = .init(top: 10, left: 16, bottom: 24, right: 16)
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        failedLabel.text = Constants.failedText
+        failedLabel.font = .systemFont(ofSize: 14)
+        failedLabel.textAlignment = .center
+        failedLabel.textColor = Constants.failedTextColor
+        failedLabel.numberOfLines = 0
+        failedLabel.isHidden = true
+        
+        failedImage.isHidden = true
     }
     
     func configoreModel() {
@@ -43,6 +63,25 @@ private extension FavoritesViewController {
             DispatchQueue.main.async {
                 self?.collectionView.reloadData()
             }
+        }
+    }
+    
+    func checkArrayForItems() {
+        if model.items.isEmpty == true {
+            toggleHiddenViews([
+                collectionView,
+                failedImage,
+                failedLabel
+            ])
+        }
+    }
+    
+    func toggleHiddenViews(_ views: [UIView?]) {
+        for view in views {
+            guard let view = view else {
+                return
+            }
+            view.isHidden.toggle()
         }
     }
     
@@ -66,6 +105,7 @@ extension FavoritesViewController: UICollectionViewDataSource, UICollectionViewD
             cell.contentText = item.content
             cell.isFavorite = item.isFavorite
         }
+        
         return cell
     }
     

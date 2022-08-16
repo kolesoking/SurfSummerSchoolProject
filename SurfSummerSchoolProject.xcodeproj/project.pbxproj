@@ -46,6 +46,8 @@
 		C479E42728A8117D00CC27DC /* BaseTokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C479E42628A8117D00CC27DC /* BaseTokenStorage.swift */; };
 		C479E42A28A8569200CC27DC /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C479E42928A8569200CC27DC /* ImageLoader.swift */; };
 		C479E42C28A857F100CC27DC /* UIImageView + ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C479E42B28A857F100CC27DC /* UIImageView + ImageLoader.swift */; };
+		C49A686F28AAED1700C7F99C /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A686E28AAED1700C7F99C /* FavoriteService.swift */; };
+		C49A687128AAF37C00C7F99C /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A687028AAF37C00C7F99C /* FavoriteModel.swift */; };
 		C4B182C328A7DAD4009A7868 /* DetailImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B182C128A7DAD4009A7868 /* DetailImageTableViewCell.swift */; };
 		C4B182C428A7DAD4009A7868 /* DetailImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B182C228A7DAD4009A7868 /* DetailImageTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -92,6 +94,8 @@
 		C479E42628A8117D00CC27DC /* BaseTokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTokenStorage.swift; sourceTree = "<group>"; };
 		C479E42928A8569200CC27DC /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		C479E42B28A857F100CC27DC /* UIImageView + ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + ImageLoader.swift"; sourceTree = "<group>"; };
+		C49A686E28AAED1700C7F99C /* FavoriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteService.swift; sourceTree = "<group>"; };
+		C49A687028AAF37C00C7F99C /* FavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModel.swift; sourceTree = "<group>"; };
 		C4B182C128A7DAD4009A7868 /* DetailImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImageTableViewCell.swift; sourceTree = "<group>"; };
 		C4B182C228A7DAD4009A7868 /* DetailImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailImageTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -283,6 +287,7 @@
 		C479E40928A7EA5C00CC27DC /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				C49A686D28AAECF800C7F99C /* FavoriteService */,
 				C479E42828A8565D00CC27DC /* ImageLoader */,
 				C479E41A28A80D9C00CC27DC /* PicturesService */,
 				C479E41328A8078E00CC27DC /* AuthService */,
@@ -338,6 +343,15 @@
 				C479E42B28A857F100CC27DC /* UIImageView + ImageLoader.swift */,
 			);
 			path = ImageLoader;
+			sourceTree = "<group>";
+		};
+		C49A686D28AAECF800C7F99C /* FavoriteService */ = {
+			isa = PBXGroup;
+			children = (
+				C49A686E28AAED1700C7F99C /* FavoriteService.swift */,
+				C49A687028AAF37C00C7F99C /* FavoriteModel.swift */,
+			);
+			path = FavoriteService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,12 +447,14 @@
 				C479E42C28A857F100CC27DC /* UIImageView + ImageLoader.swift in Sources */,
 				C479E41528A807A800CC27DC /* AuthService.swift in Sources */,
 				C430507628A070E700A43771 /* FavoriteItemTableViewCell.swift in Sources */,
+				C49A687128AAF37C00C7F99C /* FavoriteModel.swift in Sources */,
 				C479E41928A808B700CC27DC /* AuthResponseModel.swift in Sources */,
 				C479E42328A8109700CC27DC /* TokenStorage.swift in Sources */,
 				C479E42A28A8569200CC27DC /* ImageLoader.swift in Sources */,
 				C430504A289B348700A43771 /* MainViewController.swift in Sources */,
 				C4305051289DB75D00A43771 /* MainItemCollectionViewCell.swift in Sources */,
 				C479E40C28A7EA8300CC27DC /* NetworkTask.swift in Sources */,
+				C49A686F28AAED1700C7F99C /* FavoriteService.swift in Sources */,
 				C479E40628A7DF4600CC27DC /* DetailTextTableViewCell.swift in Sources */,
 				C479E41228A7F13A00CC27DC /* NetworkMethod.swift in Sources */,
 				C430504D289DADA100A43771 /* MainModel.swift in Sources */,

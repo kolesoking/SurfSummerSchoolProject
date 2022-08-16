@@ -66,20 +66,6 @@ class MainViewController: UIViewController {
             ])
         }
     }
-    
-    // MARK: - Methods
-    
-    func toggleHiddenViews(_ views: [UIView?]) {
-        for view in views {
-            guard let view = view else {
-                return
-            }
-
-            view.isHidden.toggle()
-        }
-    }
-
-    
 }
 
 // MARK: - Private Methods
@@ -128,6 +114,16 @@ private extension MainViewController {
                 failedButton
             ])
             activityIndicator.stopAnimating()
+        }
+    }
+    
+    func toggleHiddenViews(_ views: [UIView?]) {
+        for view in views {
+            guard let view = view else {
+                return
+            }
+
+            view.isHidden.toggle()
         }
     }
 
