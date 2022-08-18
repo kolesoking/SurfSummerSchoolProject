@@ -24,7 +24,10 @@ class MainViewController: UIViewController {
     
     // MARK: - Private Properties
     
+    private let favoriteService = FavoriteService.shared
+    
     private let model: MainModel = .init()
+    private var posts: [DetailItemModel] = []
     
     // MARK: - Views
     
@@ -51,6 +54,12 @@ class MainViewController: UIViewController {
             action: #selector(goToSearchVC)
         )
         navigationController?.navigationBar.tintColor = .black
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        collectionView.reloadData()
     }
     
     // MARK: - Actions
@@ -126,7 +135,19 @@ private extension MainViewController {
             view.isHidden.toggle()
         }
     }
-
+    
+    func checkingFavorites(imageURLInString: String) -> Bool {
+        
+        var isFavorite: Bool = false
+        
+        for post in FavoriteService.shared.favoritePosts {
+            if post.imageURLInString == imageURLInString {
+                isFavorite = true
+            }
+        }
+        
+        return isFavorite
+    }
     
     @objc func goToSearchVC() {
         let searchVC = SearchViewController()
@@ -145,10 +166,16 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(MainItemCollectionViewCell.self)", for: indexPath)
         if let cell = cell as? MainItemCollectionViewCell {
-            let item = model.items[indexPath.row]
+            var item = model.items[indexPath.row]
             cell.imageURLString = item.imageURLInString
             cell.title = item.title
-            cell.isFavorite = item.isFavorite
+            cell.isFavorite = checkingFavorites(imageURLInString: item.imageURLInString)
+            
+            cell.didFavoritesTapped = {
+                
+                item.isFavorite.toggle()
+                self.favoriteService.saveInFavorites(post: item)
+            }
         }
         return cell
     }
@@ -168,7 +195,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = DetailViewController()
-        vc.model = model.items[indexPath.row]
+        vc.post = model.items[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
 }

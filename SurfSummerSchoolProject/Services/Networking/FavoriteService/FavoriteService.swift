@@ -7,42 +7,44 @@
 
 import Foundation
 
-final class FavoriteService {
+class FavoriteService {
+    
+    static let shared = FavoriteService()
+    
+    let defaults = UserDefaults.standard
     
     private enum Keys: String {
-        case favoriteModel
+        case favoritePosts
     }
     
-    static var favoriteModel: FavoriteModel! {
+    var favoritePosts: [DetailItemModel] {
         get {
-            guard let savedData = UserDefaults.standard.object(forKey: Keys.favoriteModel.rawValue) as? Data, let decodedModel = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(savedData) as? FavoriteModel else { return nil }
-            return decodedModel
+            
+            if let data = defaults.value(forKey: Keys.favoritePosts.rawValue) as? Data {
+                return try! PropertyListDecoder().decode([DetailItemModel].self, from: data)
+            } else {
+                return [DetailItemModel]()
+            }
+
         }
         
         set {
-            let defaults = UserDefaults.standard
-            let key = Keys.favoriteModel.rawValue
             
-            if let favoriteModel = newValue {
-                if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: favoriteModel, requiringSecureCoding: false) {
-                    defaults.set(savedData, forKey: key)
-                }
+            if let data = try? PropertyListEncoder().encode(newValue) {
+                defaults.set(data, forKey: Keys.favoritePosts.rawValue)
             }
         }
     }
     
-    func getCacheFavorite() -> FavoriteModel {
-        guard let savedData = UserDefaults.standard.object(forKey: Keys.favoriteModel.rawValue) as? Data, let decodedModel = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(savedData) as? FavoriteModel else { return FavoriteModel.init(imageURLInString: "", title: "", isFavorite: false, content: "", dateCreation: "") }
-        return decodedModel
+    func saveInFavorites(post: DetailItemModel) {
+        
+        favoritePosts.append(post)
     }
     
-    func cacheFavorite(value: FavoriteModel) {
-        let defaults = UserDefaults.standard
-        let key = Keys.favoriteModel.rawValue
+    func deliteFromFavorite(indexPath: Int) {
         
-        if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: value, requiringSecureCoding: false) {
-            defaults.set(savedData, forKey: key)
-        }
+        favoritePosts.remove(at: indexPath)
     }
+    
     
 }

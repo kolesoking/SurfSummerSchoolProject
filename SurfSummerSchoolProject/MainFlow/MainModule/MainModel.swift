@@ -34,7 +34,7 @@ final class MainModel {
                     DetailItemModel(
                         imageURLInString: pictureModel.photoUrl,
                         title: pictureModel.title,
-                        isFavorite: false, // TODO: - Need adding `FavoriteService`
+                        isFavorite: false,
                         content: pictureModel.content,
                         dateCreation: pictureModel.date
                     )
@@ -45,5 +45,4 @@ final class MainModel {
             }
         }
     }
-    
 }

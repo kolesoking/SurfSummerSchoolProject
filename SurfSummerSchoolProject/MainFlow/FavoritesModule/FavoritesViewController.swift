@@ -18,7 +18,7 @@ class FavoritesViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private let model: MainModel = .init()
+    private let favoriteService = FavoriteService.shared
     
     // MARK: - Views
     
@@ -32,9 +32,14 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         confiureAppearance()
-        configoreModel()
-        model.loadPosts()
-        checkArrayForItems()
+//        checkArrayForItems()
+        collectionView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        checkArrayForItems()
+        collectionView.reloadData()
     }
 }
 
@@ -58,23 +63,28 @@ private extension FavoritesViewController {
         failedImage.isHidden = true
     }
     
-    func configoreModel() {
-        model.didItemsUpdated = { [weak self] in
-            DispatchQueue.main.async {
-                self?.collectionView.reloadData()
-            }
-        }
-    }
+//    func addPostsInArray() {
+//
+//        if favoritePosts.isEmpty == true {
+//            favoritePosts = favoriteService.favoritePosts
+//        }
+//    }
     
-    func checkArrayForItems() {
-        if model.items.isEmpty == true {
-            toggleHiddenViews([
-                collectionView,
-                failedImage,
-                failedLabel
-            ])
-        }
-    }
+//    func checkArrayForItems() {
+//        if favoriteService.favoritePosts.isEmpty == true {
+//            toggleHiddenViews([
+//                collectionView,
+//                failedImage,
+//                failedLabel
+//            ])
+//        } else {
+//            toggleHiddenViews([
+//                collectionView,
+//                failedImage,
+//                failedLabel
+//            ])
+//        }
+//    }
     
     func toggleHiddenViews(_ views: [UIView?]) {
         for view in views {
@@ -92,18 +102,25 @@ private extension FavoritesViewController {
 extension FavoritesViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model.items.count
+        return favoriteService.favoritePosts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(FavoriteItemTableViewCell.self)", for: indexPath)
         if let cell = cell as? FavoriteItemTableViewCell {
-            let item = model.items[indexPath.row]
-            cell.imageURLString = item.imageURLInString
-            cell.titleText = item.title
-            cell.dateText = item.dateCreation
-            cell.contentText = item.content
-            cell.isFavorite = item.isFavorite
+            var post = favoriteService.favoritePosts[indexPath.row]
+            cell.imageURLString = post.imageURLInString
+            cell.titleText = post.title
+            cell.dateText = post.dateCreation
+            cell.contentText = post.content
+            cell.isFavorite = post.isFavorite
+            
+            cell.didFavoriteTapped = {
+                post.isFavorite.toggle()
+                
+                self.favoriteService.deliteFromFavorite(indexPath: indexPath.row)
+                self.collectionView.reloadData()
+            }
         }
         
         return cell
@@ -119,7 +136,7 @@ extension FavoritesViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = DetailViewController()
-        vc.model = model.items[indexPath.row]
+        vc.post = favoriteService.favoritePosts[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
     
