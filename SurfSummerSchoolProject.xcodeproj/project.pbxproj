@@ -46,6 +46,9 @@
 		C479E42728A8117D00CC27DC /* BaseTokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C479E42628A8117D00CC27DC /* BaseTokenStorage.swift */; };
 		C479E42A28A8569200CC27DC /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C479E42928A8569200CC27DC /* ImageLoader.swift */; };
 		C479E42C28A857F100CC27DC /* UIImageView + ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C479E42B28A857F100CC27DC /* UIImageView + ImageLoader.swift */; };
+		C47D52B828B1F62D00DB6447 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47D52B628B1F62D00DB6447 /* ProfileTableViewCell.swift */; };
+		C47D52B928B1F62D00DB6447 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C47D52B728B1F62D00DB6447 /* ProfileTableViewCell.xib */; };
+		C47D52BB28B1F8B600DB6447 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47D52BA28B1F8B600DB6447 /* ProfileModel.swift */; };
 		C49A686F28AAED1700C7F99C /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49A686E28AAED1700C7F99C /* FavoriteService.swift */; };
 		C4B182C328A7DAD4009A7868 /* DetailImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B182C128A7DAD4009A7868 /* DetailImageTableViewCell.swift */; };
 		C4B182C428A7DAD4009A7868 /* DetailImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B182C228A7DAD4009A7868 /* DetailImageTableViewCell.xib */; };
@@ -93,6 +96,9 @@
 		C479E42628A8117D00CC27DC /* BaseTokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTokenStorage.swift; sourceTree = "<group>"; };
 		C479E42928A8569200CC27DC /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		C479E42B28A857F100CC27DC /* UIImageView + ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + ImageLoader.swift"; sourceTree = "<group>"; };
+		C47D52B628B1F62D00DB6447 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		C47D52B728B1F62D00DB6447 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
+		C47D52BA28B1F8B600DB6447 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		C49A686E28AAED1700C7F99C /* FavoriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteService.swift; sourceTree = "<group>"; };
 		C4B182C128A7DAD4009A7868 /* DetailImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImageTableViewCell.swift; sourceTree = "<group>"; };
 		C4B182C228A7DAD4009A7868 /* DetailImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailImageTableViewCell.xib; sourceTree = "<group>"; };
@@ -171,8 +177,10 @@
 		C4305031289A8A8500A43771 /* ProfileModule */ = {
 			isa = PBXGroup;
 			children = (
+				C47D52B528B1F60600DB6447 /* Cells */,
 				C4305033289A8AA600A43771 /* ProfileViewController.swift */,
 				C4305034289A8AA600A43771 /* ProfileViewController.xib */,
+				C47D52BA28B1F8B600DB6447 /* ProfileModel.swift */,
 			);
 			path = ProfileModule;
 			sourceTree = "<group>";
@@ -343,6 +351,15 @@
 			path = ImageLoader;
 			sourceTree = "<group>";
 		};
+		C47D52B528B1F60600DB6447 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C47D52B628B1F62D00DB6447 /* ProfileTableViewCell.swift */,
+				C47D52B728B1F62D00DB6447 /* ProfileTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		C49A686D28AAECF800C7F99C /* FavoriteService */ = {
 			isa = PBXGroup;
 			children = (
@@ -418,6 +435,7 @@
 				C430505C289DE5B100A43771 /* DetailViewController.xib in Resources */,
 				C430504B289B348700A43771 /* MainViewController.xib in Resources */,
 				C4305036289A8AA600A43771 /* ProfileViewController.xib in Resources */,
+				C47D52B928B1F62D00DB6447 /* ProfileTableViewCell.xib in Resources */,
 				C4B182C428A7DAD4009A7868 /* DetailImageTableViewCell.xib in Resources */,
 				C430501B289A86A700A43771 /* Assets.xcassets in Resources */,
 				C4305057289DD72800A43771 /* SearchViewController.xib in Resources */,
@@ -434,6 +452,7 @@
 				C479E42028A80F8B00CC27DC /* PicturesService.swift in Sources */,
 				C4305035289A8AA600A43771 /* ProfileViewController.swift in Sources */,
 				C479E42728A8117D00CC27DC /* BaseTokenStorage.swift in Sources */,
+				C47D52B828B1F62D00DB6447 /* ProfileTableViewCell.swift in Sources */,
 				C430502F289A8A8000A43771 /* FavoritesViewController.swift in Sources */,
 				C4305012289A86A400A43771 /* AppDelegate.swift in Sources */,
 				C430506A289DECD900A43771 /* DetailTitleTableViewCell.swift in Sources */,
@@ -445,6 +464,7 @@
 				C479E41528A807A800CC27DC /* AuthService.swift in Sources */,
 				C430507628A070E700A43771 /* FavoriteItemTableViewCell.swift in Sources */,
 				C479E41928A808B700CC27DC /* AuthResponseModel.swift in Sources */,
+				C47D52BB28B1F8B600DB6447 /* ProfileModel.swift in Sources */,
 				C479E42328A8109700CC27DC /* TokenStorage.swift in Sources */,
 				C479E42A28A8569200CC27DC /* ImageLoader.swift in Sources */,
 				C430504A289B348700A43771 /* MainViewController.swift in Sources */,

@@ -151,6 +151,7 @@ private extension MainViewController {
     
     @objc func goToSearchVC() {
         let searchVC = SearchViewController()
+        searchVC.posts = model.items
         self.navigationController?.pushViewController(searchVC, animated: true)
     }
 }
